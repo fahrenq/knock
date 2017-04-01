@@ -222,7 +222,7 @@ Example response from the API:
 {"jwt": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9"}
 ```
 
-There's an option to include entity access reference data to response, you need to uncomment the corresponding line in your initializer (config.entity_access_attribute = true), and response will looks like this (where 1 is entity.id):
+There's an option to include entity access reference data to response, you need to add the corresponding line in your initializer (config.entity_access_attribute = true), and response will looks like this (where 1 is entity.id):
 ```
 201 Created
 {

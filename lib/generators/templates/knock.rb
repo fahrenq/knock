@@ -56,4 +56,13 @@ Knock.setup do |config|
   ##
   ## Default:
   # config.not_found_exception_class_name = 'ActiveRecord::RecordNotFound'
+
+  ## Entity_access attribute
+  ## -----------------------
+  ##
+  ## Configure existence of entity_access in response
+  ##
+  ## Default:
+  # config.entity_access_attribute = false
+
 end
