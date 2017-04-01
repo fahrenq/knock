@@ -222,6 +222,15 @@ Example response from the API:
 {"jwt": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9"}
 ```
 
+There's an option to include entity access reference data to response, you need to uncomment the corresponding line in your initializer (config.entity_access_attribute = true), and response will looks like this (where 1 is entity.id):
+```
+201 Created
+{
+  "jwt": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9",
+  "entity_access": 1
+}
+```
+
 To make an authenticated request to your API, you need to pass the token via the request header:
 ```
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9
