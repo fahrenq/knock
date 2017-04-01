@@ -17,9 +17,9 @@ module Knock
 
     def auth_token
       if entity.respond_to? :to_token_payload
-        AuthToken.new payload: entity.to_token_payload
+        AuthToken.new payload: entity.to_token_payload, entity_access: entity.id
       else
-        AuthToken.new payload: { sub: entity.id }
+        AuthToken.new payload: { sub: entity.id }, entity_access: entity.id
       end
     end
 

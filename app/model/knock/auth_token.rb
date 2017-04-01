@@ -5,7 +5,7 @@ module Knock
     attr_reader :token
     attr_reader :payload
 
-    def initialize payload: {}, token: nil, verify_options: {}
+    def initialize payload: {}, token: nil, verify_options: {}, entity_access: nil
       if token.present?
         @payload, _ = JWT.decode token.to_s, decode_key, true, options.merge(verify_options)
         @token = token
@@ -14,6 +14,7 @@ module Knock
         @token = JWT.encode @payload,
           secret_key,
           Knock.token_signature_algorithm
+        @entity_access = entity_access
       end
     end
 
@@ -26,7 +27,10 @@ module Knock
     end
 
     def to_json options = {}
-      {jwt: @token}.to_json
+      {
+        jwt: @token,
+        entity_access: @entity_access
+      }.to_json
     end
 
   private
