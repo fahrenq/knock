@@ -31,7 +31,7 @@ module Knock
       response.merge!({
         entity_access: @entity_access
       }) if Knock.entity_access_attribute
-      response
+      response.to_json
     end
 
   private
