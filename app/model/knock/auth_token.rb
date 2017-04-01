@@ -27,10 +27,11 @@ module Knock
     end
 
     def to_json options = {}
-      {
-        jwt: @token,
+      response = { jwt: @token }
+      response.merge!({
         entity_access: @entity_access
-      }.to_json
+      }) if Knock.entity_access_attribute
+      response
     end
 
   private

@@ -19,6 +19,9 @@ module Knock
   mattr_accessor :not_found_exception_class_name
   self.not_found_exception_class_name = 'ActiveRecord::RecordNotFound'
 
+  mattr_accessor :entity_access_attribute
+  self.entity_access_attribute = false
+
   def self.not_found_exception_class
     not_found_exception_class_name.to_s.constantize
   end
